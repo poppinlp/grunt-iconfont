@@ -1,0 +1,32 @@
+{
+  "name": "grunt-iconfont",
+  "version": "0.1.0",
+  "description": "Create icon fonts from several SVG icons.",
+  "main": "tasks/index.js",
+  "scripts": {
+    "preinstall": "npm list -g grunt-cli || npm install -g grunt-cli",
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/poppinlp/grunt-iconfont.git"
+  },
+  "keywords": [
+    "gruntplugin",
+    "grunt",
+    "iconfont"
+  ],
+  "author": "PoppinL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poppinlp/grunt-iconfont/issues"
+  },
+  "homepage": "https://github.com/poppinlp/grunt-iconfont",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-svg2ttf": "^1.0.0",
+    "grunt-svgicons2svgfont": "^0.1.2",
+    "grunt-ttf2eot": "^1.0.0",
+    "grunt-ttf2woff": "^1.0.0"
+  }
+}
