@@ -60,7 +60,7 @@ Allow to append codepoints to icon files in order to always keep the same codepo
 
 ```js
 grunt.initConfig({
-  iconfong: {
+  iconfont: {
     options: {
       font: "my-font-name"
     },
