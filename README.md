@@ -42,19 +42,17 @@ Type: `string`
 
 Directory of the resulting font.
 
-#### options.font
+#### options.fontName
 
 Type: `String`
+
 Default value: `'iconfont'`
 
 A string value that is used to name your font-family.
 
-#### options.appendCodepoints
+#### options.*
 
-Type: `Boolean`
-Default value: `false`
-
-Allow to append codepoints to icon files in order to always keep the same codepoints.
+And support all options that `grunt-svgicons2svgfont` support. You could read [this page](https://github.com/poppinlp/grunt-svgicons2svgfont#user-content-options) for detail.
 
 ### Example
 

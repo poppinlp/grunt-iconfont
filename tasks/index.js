@@ -2,32 +2,23 @@
 
 module.exports = function (grunt) {
     grunt.registerMultiTask('iconfont', 'Create icon fonts from several SVG icons.', function () {
+        // register task
+        (require('../node_modules/grunt-svgicons2svgfont/tasks/svgicons2svgfont.js'))(grunt);
+        (require('../node_modules/grunt-svg2ttf/tasks/task.js'))(grunt);
+        (require('../node_modules/grunt-ttf2eot/tasks/task.js'))(grunt);
+        (require('../node_modules/grunt-ttf2woff/tasks/task.js'))(grunt);
+
+        // check require
+        this.requiresConfig([this.name, this.target, "src"].join("."));
+        this.requiresConfig([this.name, this.target, "dest"].join("."));
+
         var path = require('path'),
             fs = require('fs'),
             targetName = this.target,
-            options = this.options(),
+            options = this.options({
+                fontName: 'iconfont'
+            }),
             data = this.data;
-
-        // check for requires config
-        if (!data.src) {
-            grunt.fail.fatal('Need src property in "iconfont:' + targetName + '" task!');
-        } else {
-            data.src = path.normalize(data.src);
-        }
-        if (!data.dest) {
-            grunt.fail.fatal('Need dest property in "iconfont:' + targetName + '" task!');
-        } else {
-            data.dest = path.normalize(data.dest);
-            if (!grunt.file.exists(data.dest)) {
-                grunt.file.mkdir(data.dest);
-            }
-        }
-
-        // load tasks
-        grunt.loadNpmTasks('grunt-svgicons2svgfont');
-        grunt.loadNpmTasks('grunt-svg2ttf');
-        grunt.loadNpmTasks('grunt-ttf2eot');
-        grunt.loadNpmTasks('grunt-ttf2woff');
 
         // make config object for tasks
         var config = {
@@ -35,8 +26,7 @@ module.exports = function (grunt) {
                 svg2ttf: {},
                 ttf2eot: {},
                 ttf2woff: {}
-            },
-            fontName = options.font || 'iconfont';
+            };
 
         config.svgicons2svgfont[targetName] = {
             options: options,
@@ -44,15 +34,15 @@ module.exports = function (grunt) {
             dest: data.dest
         };
         config.svg2ttf[targetName] = {
-            src: path.join(data.dest, fontName + '.svg'),
+            src: path.join(data.dest, options.fontName + '.svg'),
             dest: data.dest
         };
         config.ttf2eot[targetName] = {
-            src: path.join(data.dest, fontName + '.ttf'),
+            src: path.join(data.dest, options.fontName + '.ttf'),
             dest: data.dest
         };
         config.ttf2woff[targetName] = {
-            src: path.join(data.dest, fontName + '.ttf'),
+            src: path.join(data.dest, options.fontName + '.ttf'),
             dest: data.dest
         };
 

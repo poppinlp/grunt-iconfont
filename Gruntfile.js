@@ -5,16 +5,14 @@ module.exports = function(grunt) {
         iconfont: {
             dist: {
                 options: {
-                    font: 'test'
+                    fontName: 'font1'
                 },
                 src: 'tests/icons1/*.svg',
-                dest: 'tests/font/font1/'
+                dest: 'tests/font/'
             },
             test: {
-                options: {
-                },
                 src: 'tests/icons2/*.svg',
-                dest: 'tests/font/font2/'
+                dest: 'tests/font/'
             }
         }
     });
