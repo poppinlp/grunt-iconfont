@@ -60,7 +60,7 @@ And support all options that `grunt-svgicons2svgfont` support. You could read [t
 grunt.initConfig({
   iconfont: {
     options: {
-      font: "my-font-name"
+      fontName: "my-font-name"
     },
     your_target: {
         src: 'glyphs/*.svg',
