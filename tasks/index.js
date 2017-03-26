@@ -3,10 +3,10 @@
 module.exports = function (grunt) {
     grunt.registerMultiTask('iconfont', 'Create icon fonts from several SVG icons.', function () {
         // register task
-        (require('../node_modules/grunt-svgicons2svgfont/tasks/svgicons2svgfont.js'))(grunt);
-        (require('../node_modules/grunt-svg2ttf/tasks/task.js'))(grunt);
-        (require('../node_modules/grunt-ttf2eot/tasks/task.js'))(grunt);
-        (require('../node_modules/grunt-ttf2woff/tasks/task.js'))(grunt);
+        (require('grunt-svgicons2svgfont/tasks/svgicons2svgfont.js'))(grunt);
+        (require('grunt-svg2ttf/tasks/task.js'))(grunt);
+        (require('grunt-ttf2eot/tasks/task.js'))(grunt);
+        (require('grunt-ttf2woff/tasks/task.js'))(grunt);
 
         // check require
         this.requiresConfig([this.name, this.target, "src"].join("."));
