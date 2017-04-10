@@ -1,6 +1,6 @@
 {
   "name": "grunt-iconfont",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Create icon fonts from several SVG icons.",
   "main": "tasks/index.js",
   "scripts": {
