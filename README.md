@@ -42,11 +42,11 @@ Type: `string`
 
 Directory of the resulting font.
 
-#### options.fontName
+#### fontName
 
 Type: `String`
 
-Default value: `'iconfont'`
+Default value: `targetName`
 
 A string value that is used to name your font-family.
 
@@ -60,9 +60,9 @@ And support all options that `grunt-svgicons2svgfont` support. You could read [t
 grunt.initConfig({
   iconfont: {
     options: {
-      fontName: "my-font-name"
     },
     your_target: {
+        fontName: 'my-font-name', // overrides font name, would default to 'your_target' in this example
         src: 'glyphs/*.svg',
         dest: 'font/'
     }

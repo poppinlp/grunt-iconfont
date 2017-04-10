@@ -15,9 +15,7 @@ module.exports = function (grunt) {
         var path = require('path'),
             fs = require('fs'),
             targetName = this.target,
-            options = this.options({
-                fontName: 'iconfont'
-            }),
+            options = this.options({fontName:this.data.fontName || targetName}),   // use the targetName as the default fontname;
             data = this.data;
 
         // make config object for tasks
@@ -27,6 +25,8 @@ module.exports = function (grunt) {
                 ttf2eot: {},
                 ttf2woff: {}
             };
+
+        grunt.file.mkdir(data.dest);  // make sure destination folder exists
 
         config.svgicons2svgfont[targetName] = {
             options: options,
